@@ -168,7 +168,6 @@ function Navbar({ contactOpen = false, onContactOpen = () => {} }) {
           <nav className="main-nav" aria-label="Main navigation">
             <Link to="/" className="nav-link">Home</Link>
             <Link to="/about" className="nav-link">About Us</Link>
-            <Link to="/Science" className="nav-link">Science</Link>
 
             <div className="nav-dropdown">
               <button
@@ -191,7 +190,7 @@ function Navbar({ contactOpen = false, onContactOpen = () => {} }) {
                   {categories.map((item) => (
                     <a
                       key={item}
-                      href="#products"
+                      href="/#products"
                       className="dropdown-item"
                       onClick={() => setOpenMenu(null)}
                     >
@@ -223,7 +222,7 @@ function Navbar({ contactOpen = false, onContactOpen = () => {} }) {
                   {concerns.map((item) => (
                     <a
                       key={item}
-                      href="#products"
+                      href="/#products"
                       className="dropdown-item"
                       onClick={() => setOpenMenu(null)}
                     >
@@ -234,7 +233,6 @@ function Navbar({ contactOpen = false, onContactOpen = () => {} }) {
               )}
             </div>
 
-            <a href="#blog" className="nav-link">Blog</a>
             <button
               type="button"
               className="nav-trigger nav-contact-button"
@@ -271,14 +269,8 @@ function Navbar({ contactOpen = false, onContactOpen = () => {} }) {
             <Link to="/about" onClick={() => setMobileNavOpen(false)} style={{ padding: '8px 0', fontWeight: 600 }}>
               About Us
             </Link>
-            <Link to="/Science" onClick={() => setMobileNavOpen(false)} style={{ padding: '8px 0', fontWeight: 600 }}>
-              Science
-            </Link>
-            <a href="#products" onClick={() => setMobileNavOpen(false)} style={{ padding: '8px 0', fontWeight: 600 }}>
+            <a href="/#products" onClick={() => setMobileNavOpen(false)} style={{ padding: '8px 0', fontWeight: 600 }}>
               Our products
-            </a>
-            <a href="#blog" onClick={() => setMobileNavOpen(false)} style={{ padding: '8px 0', fontWeight: 600 }}>
-              Blog
             </a>
             <button
               type="button"

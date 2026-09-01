@@ -20,7 +20,7 @@ function Hero() {
   }, [activeSlide])
 
   return (
-    <section className="hero-section" aria-label="Featured wellness collections">
+    <section id="products" className="hero-section" aria-label="Featured wellness collections">
       <div className="hero-carousel">
         <div className="hero-carousel-window">
           <div

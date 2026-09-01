@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 
 function Footer({ onContactOpen = () => {} }) {
+  const currentYear = new Date().getFullYear()
+
   return (
     <footer className="site-footer">
       <div className="footer-grid container">
@@ -17,7 +19,7 @@ function Footer({ onContactOpen = () => {} }) {
         <div className="footer-links-block">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="#products">Products</a></li>
+            <li><a href="/#products">Products</a></li>
             <li><Link to="/about">About Us</Link></li>
             <li>
               <button
@@ -46,7 +48,7 @@ function Footer({ onContactOpen = () => {} }) {
       </div>
 
       <div className="footer-bottom container">
-        Copyright © 2025 REGEN PHYTOZENIKA
+        Copyright © {currentYear} REGEN PHYTOZENIKA
       </div>
     </footer>
   )

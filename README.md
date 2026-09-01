@@ -1,16 +1,78 @@
-# React + Vite
+# Regen Phytozenika
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Responsive wellness website for Regen Phytozenika, built with React and Vite. The site presents the brand philosophy, product categories, company information, and contact experience.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Full-width responsive product-category slider
+- Category-specific brand palette and product visuals
+- Animated product backdrop and carousel controls
+- Responsive navigation and contact experience
+- About page with company and wellness information
+- Search-engine and social-sharing metadata
 
-## React Compiler
+## Category palette
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Category | Hex |
+| --- | --- |
+| Immune | `#EC008C` |
+| Cardiovascular | `#ED1C24` |
+| Skin care | `#FABFAC` |
+| Metabolic | `#F14624` |
+| Respiratory | `#81C2D9` |
 
-## Expanding the ESLint configuration
+## Requirements
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Node.js 22.12 or newer
+- npm 10 or newer
+
+## Local development
+
+```bash
+npm install
+npm run dev
+```
+
+Vite prints the local development URL after startup, normally `http://localhost:5173`.
+
+## Quality checks
+
+Run the complete local validation before committing:
+
+```bash
+npm run check
+```
+
+This runs ESLint and creates a production build in `dist/`.
+
+## Production preview
+
+```bash
+npm run build
+npm run preview
+```
+
+## Project structure
+
+```text
+public/              Static images and favicon
+src/components/      Shared website components
+src/pages/           Route-level pages
+src/App.jsx          Application routes
+src/App.css          Site styling and responsive design
+src/main.jsx         React entry point
+```
+
+## GitHub workflow
+
+The workflow in `.github/workflows/ci.yml` runs linting and a production build for pushes and pull requests targeting `main`.
+
+Before pushing changes:
+
+```bash
+npm run check
+git status
+git add .
+git commit -m "Describe your changes"
+git push origin main
+```
