@@ -18,4 +18,10 @@ export default defineConfig([
       parserOptions: { ecmaFeatures: { jsx: true } },
     },
   },
+  {
+    files: ['convert-to-pdf.js'],
+    languageOptions: {
+      globals: globals.node,
+    },
+  },
 ])

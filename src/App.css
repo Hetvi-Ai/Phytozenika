@@ -7,8 +7,10 @@
     ========================================== */
   :root {
     --hero-bg-deep: #001a17;       
-    --hero-bg-main: #002e29;       
-    --hero-bg-gradient: linear-gradient(150deg, #001f1c 0%, #00665c 50%, #00a896 100%); 
+    /* --hero-bg-main: #002e29;       
+    --hero-bg-gradient: linear-gradient(150deg, #001f1c 0%, #00665c 50%, #00a896 100%);  */
+    
+    --hero-bg-gradient: linear-gradient(#008080de); 
     --hero-emerald-glow: radial-gradient(circle at 80% 20%, rgba(0, 168, 150, 0.22) 0%, transparent 60%); 
     --hero-mesh: radial-gradient(circle at 15% 85%, rgba(0, 168, 150, 0.15) 0%, transparent 50%);
     --bg-page: #f2f8f7;
@@ -1131,7 +1133,7 @@
     width: 88%;
     height: 88%;
     object-fit: contain;
-    mix-blend-mode: multiply;
+    mix-blend-mode: normal;
     transform: rotate(-2deg) translateY(-3px);
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
   }
@@ -1697,85 +1699,332 @@
 
   /* ==========================================================================
     CONCEPT WORDMARK CARD
+  /* ==========================================================================
+    CONCEPT WORDMARK SHOWCASE (BOTANICAL GREEN BACKGROUND)
     ========================================================================== */
 
   .concept-section {
     background: var(--bg-page);
-    padding: 20px 0 100px;
+    padding: 20px 0 90px;
   }
 
   .concept-wordmark {
-    background: linear-gradient(140deg, #f7fdfd 0%, #e3f5f5 100%);
-    color: #193b35;
-    border-radius: var(--radius-lg);
-    padding: 60px 48px;
-    text-align: center;
-    box-shadow: var(--shadow-lg);
     position: relative;
+    border-radius: var(--radius-lg);
+    background:
+      linear-gradient(120deg, rgba(255, 255, 255, 0.50), transparent 48%),
+      linear-gradient(135deg, #edf8f4 0%, #e1f2ea 52%, #d5ebe1 100%);
+    border: 1px solid rgba(6, 120, 96, 0.22);
+    box-shadow: 0 18px 42px -10px rgba(9, 71, 59, 0.14);
+    padding: 58px 44px 52px;
+    text-align: center;
     overflow: hidden;
-    border: 1px solid rgba(0, 128, 128, 0.24);
+    color: #0d4a3a;
   }
 
   .concept-wordmark::before {
     content: '';
     position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at center, rgba(0, 128, 128, 0.12) 0%, transparent 70%);
+    inset: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.58);
+    border-radius: calc(var(--radius-lg) - 2px);
     pointer-events: none;
   }
 
-  .concept-wordmark-main {
-    font-family: 'Outfit', sans-serif;
-    font-size: clamp(2.2rem, 5.5vw, 3.8rem);
-    font-weight: 800;
-    letter-spacing: 0.14em;
-    color: #008080;
-    margin-bottom: 24px;
+  .concept-marquee {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    z-index: 0;
+    overflow: hidden;
+    transform: translateY(-50%);
+    opacity: 0.075;
+    pointer-events: none;
   }
 
+  .brand-marquee-section {
+    position: relative;
+    min-height: 58px;
+    overflow: hidden;
+    background: linear-gradient(90deg, #e6f2f0 0%, #d8ece5 50%, #e6f2f0 100%);
+    border-top: 1px solid rgba(0, 117, 105, 0.18);
+    border-bottom: 1px solid rgba(0, 117, 105, 0.18);
+    display: flex;
+    align-items: center;
+  }
+
+  .brand-marquee-window {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .brand-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: brandQualitiesMarquee 26s linear infinite;
+  }
+
+  .brand-marquee-item {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    min-width: 100vw;
+    padding: 0 34px;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .brand-marquee-item span {
+    color: #176350;
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(0.86rem, 1.4vw, 1.08rem);
+    font-weight: 650;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .brand-marquee-item i {
+    color: #b48c28;
+    font-size: 0.8rem;
+    font-style: normal;
+  }
+
+  @keyframes brandQualitiesMarquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .concept-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: conceptMarquee 24s linear infinite;
+  }
+
+  .concept-marquee span {
+    padding-right: 42px;
+    color: #176350;
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(4rem, 12vw, 9rem);
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  @keyframes conceptMarquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Badge Row */
+  .concept-badge-wrap {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 22px;
+  }
+
+  .concept-synergy-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 20px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.64);
+    border: 1px solid rgba(6, 120, 96, 0.26);
+    color: #236653;
+    font-size: 0.82rem;
+    font-weight: 750;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    box-shadow: 0 5px 16px rgba(9, 71, 59, 0.08);
+    backdrop-filter: blur(8px);
+  }
+
+  /* Main Wordmark Split (Light Creative Typography on Green) */
+  .concept-wordmark-main {
+    position: relative;
+    z-index: 2;
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(2.6rem, 6.2vw, 4.4rem);
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    line-height: 1.1;
+    margin: 0 auto 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    color: #16845e;
+    text-shadow: 0 4px 18px rgba(22, 132, 94, 0.16);
+  }
+
+  .part-phyto {
+    color: #16845e;
+    background: none;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: currentColor;
+    filter: drop-shadow(0 2px 10px rgba(22, 132, 94, 0.18));
+    transition: filter 0.3s ease;
+  }
+
+  .part-joiner {
+    color: #d97706;
+    font-size: 0.65em;
+    margin: 0 10px;
+    vertical-align: middle;
+    filter: drop-shadow(0 1px 6px rgba(212, 175, 55, 0.35));
+  }
+
+  .part-zenika {
+    color: #16845e;
+    background: none;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: currentColor;
+    filter: drop-shadow(0 2px 10px rgba(22, 132, 94, 0.18));
+    transition: filter 0.3s ease;
+  }
+
+  .concept-wordmark:hover .part-phyto {
+    filter: drop-shadow(0 4px 16px rgba(22, 132, 94, 0.30));
+  }
+
+  .concept-wordmark:hover .part-zenika {
+    filter: drop-shadow(0 4px 16px rgba(22, 132, 94, 0.30));
+  }
+
+  /* Graceful Multi-Tone Divider Line */
   .concept-wordmark-rule {
-    width: 96px;
+    position: relative;
+    z-index: 2;
+    width: 140px;
     height: 3px;
-    background: linear-gradient(90deg, transparent, #008080, transparent);
-    margin: 0 auto 36px;
+    background: linear-gradient(90deg, transparent, #8bc9ae 25%, #16845e 50%, #8bc9ae 75%, transparent);
+    margin: 0 auto 34px;
     border-radius: var(--radius-full);
   }
 
+  /* Meaning Cards (Crisp Elevated Cards on Green) */
   .concept-wordmark-meaning {
+    position: relative;
+    z-index: 2;
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 56px;
+    gap: 22px;
     flex-wrap: wrap;
-    margin-bottom: 32px;
+    margin-bottom: 26px;
   }
 
-  .concept-wordmark-meaning article {
+  .meaning-card {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    padding: 18px 34px;
+    box-shadow: none;
+    backdrop-filter: blur(6px);
+    transition: transform 0.3s ease;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    max-width: 320px;
+    gap: 6px;
+    text-align: left;
+    min-width: 250px;
   }
 
-  .concept-wordmark-meaning strong {
+  .meaning-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .meaning-card-phyto:hover {
+    filter: drop-shadow(0 8px 16px rgba(22, 132, 94, 0.14));
+  }
+
+  .meaning-card-zenika:hover {
+    filter: drop-shadow(0 8px 16px rgba(22, 132, 94, 0.14));
+  }
+
+  .meaning-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-family: 'Outfit', sans-serif;
-    font-size: 1.4rem;
-    color: #008080;
-    letter-spacing: 0.06em;
+    font-size: 1.45rem;
+    font-weight: 800;
   }
 
-  .concept-wordmark-meaning span {
+  .meaning-icon {
+    font-size: 1.3rem;
+  }
+
+  .meaning-card-phyto strong {
+    color: #0d7a64;
+    letter-spacing: 0.05em;
+  }
+
+  .meaning-card-phyto span {
+    color: #1f4b42;
     font-size: 1rem;
-    color: #254b44;
-    font-weight: 600;
+    font-weight: 550;
   }
 
+  .meaning-card-zenika strong {
+    color: #2b8061;
+    letter-spacing: 0.05em;
+  }
+
+  .meaning-card-zenika span {
+    color: #285b4b;
+    font-size: 1rem;
+    font-weight: 550;
+  }
+
+  .meaning-synergy-plus {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1.5px solid rgba(212, 175, 55, 0.5);
+    color: #b45309;
+    font-size: 1.3rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(9, 71, 59, 0.10);
+    flex-shrink: 0;
+  }
+
+  /* Caption */
   .concept-wordmark-caption {
-    font-size: 1.1rem;
-    color: #365a53;
-    font-weight: 500;
+    position: relative;
+    z-index: 2;
+    font-size: 1.12rem;
+    color: #1c5446;
+    font-weight: 520;
     max-width: 680px;
-    margin: 0 auto;
+    margin: 18px auto 0;
     line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .concept-wordmark {
+      padding: 40px 20px 34px;
+    }
+    .concept-wordmark-meaning {
+      flex-direction: column;
+      gap: 14px;
+    }
+    .meaning-card {
+      width: 100%;
+      min-width: unset;
+      text-align: center;
+      align-items: center;
+    }
   }
 
   /* ==========================================================================
@@ -2076,6 +2325,19 @@
     transition: var(--transition-smooth);
   }
 
+ /* for about us page block cards */
+  /* .mvv-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 38px 30px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: var(--transition-smooth);
+  } */
+
   .mvv-card:hover {
     transform: translateY(-6px);
     border-color: var(--color-emerald-500);
@@ -2348,22 +2610,22 @@
   /* ==========================================================================
     FOOTER (PREMIUM BOTANICAL AURORA)
     ========================================================================== */
-
   .site-footer {
     position: relative;
     isolation: isolate;
     overflow: hidden;
     background:
-      radial-gradient(circle at 8% 18%, rgba(0, 128, 128, 0.34), transparent 32%),
+      /* radial-gradient(circle at 8% 18%, rgba(0, 128, 128, 0.34), transparent 32%),
       radial-gradient(circle at 90% 12%, rgba(129, 194, 217, 0.2), transparent 30%),
-      radial-gradient(circle at 82% 92%, rgba(236, 0, 140, 0.13), transparent 34%),
-      linear-gradient(135deg, #061f28 0%, #073f43 48%, #102d3d 100%);
+      radial-gradient(circle at 82% 92%, rgba(236, 0, 140, 0.13), transparent 34%), */
+      /* linear-gradient(135deg, #061f28 0%, #073f43 48%, #102d3d 100%); */
+      linear-gradient(135deg, #008080de);
     color: #f5fffd;
-    padding: 80px 0 32px;
+    /* padding: 80px 0 32px; */
     border-top: 0;
     box-shadow: inset 0 20px 60px rgba(0, 0, 0, 0.12);
   }
-
+ 
   .site-footer::before {
     content: '';
     position: absolute;
@@ -2416,7 +2678,9 @@
   .footer-links-block h4,
   .footer-contact-block h4 {
     font-size: 1.2rem;
-    color: #8de1da;
+    /* color: #8de1da; */
+    /* color: #fef3c7; */
+    color:#002626;
     margin-bottom: 18px;
   }
 
@@ -2457,14 +2721,17 @@
   .footer-phone {
     font-size: 1.15rem;
     font-weight: 700;
-    color: #8de1da;
+    /* color: #8de1da; */
+    color: #002626;
     margin-bottom: 8px;
   }
 
   .footer-address {
     font-size: 0.88rem;
-    color: #bad5d1;
-    line-height: 1.6;
+    /* color: #bad5d1; */
+    color: #d5eeea
+    /* color: #17251e; */
+    /* line-height: 1.6; */
   }
 
   .footer-bottom {
@@ -2474,7 +2741,8 @@
     padding-top: 28px;
     text-align: center;
     font-size: 0.85rem;
-    color: #a9c7c3;
+    /* color: #a9c7c3; */
+    color:#004d4d;
   }
 
   /* ==========================================================================
@@ -2511,6 +2779,48 @@
   }
 
   @media (max-width: 768px) {
+    .brand-marquee-section {
+      min-height: 52px;
+    }
+
+    .brand-marquee-item {
+      gap: 16px;
+      padding: 0 22px;
+    }
+
+    .brand-marquee-item span {
+      font-size: 0.76rem;
+      letter-spacing: 0.12em;
+    }
+
+    .concept-section {
+      padding-bottom: 72px;
+    }
+    .concept-wordmark {
+      padding: 50px 22px 96px;
+    }
+    .concept-wordmark-main {
+      font-size: clamp(1.65rem, 7.6vw, 2.2rem);
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+    .concept-wordmark-meaning {
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    .concept-wordmark-caption {
+      font-size: 1rem;
+    }
+    .concept-capsule-scatter {
+      inset: 0;
+      transform: none;
+    }
+    .concept-capsule {
+      bottom: 22px;
+      left: 18px;
+      transform: rotate(-24deg) scale(0.74);
+      transform-origin: bottom left;
+    }
     .hero-section,
     .hero-carousel,
     .hero-slide {
@@ -2548,7 +2858,17 @@
       width: min(280px, 72vw);
     }
     .hero-float-card {
-      display: none;
+      display: block;
+      padding: 8px 11px;
+      font-size: 0.66rem;
+    }
+    .hero-float-card-top {
+      top: 18px;
+      right: 3%;
+    }
+    .hero-float-card-bottom {
+      bottom: 22px;
+      left: 3%;
     }
     .dummy-product-pack {
       width: min(220px, 58vw);
@@ -2603,3 +2923,506 @@
       transition: none;
     }
   }
+
+  /* ==========================================================================
+     BEST SELLERS - CIRCULAR AVATAR CATEGORIES (Women, Men, 50+, Kids)
+     ========================================================================== */
+  .best-sellers-section {
+    padding: 70px 0 90px;
+    background-color: var(--bg-page);
+    position: relative;
+    border-bottom: 1px solid rgba(0, 168, 150, 0.1);
+  }
+
+  .category-circles-header {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 40px auto;
+  }
+
+  .category-eyebrow {
+    color: var(--color-emerald-600);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .category-main-heading {
+    font-size: 44px;
+    font-weight: 900;
+    color: #0b0f19;
+    letter-spacing: -0.02em;
+    margin: 0 0 12px 0;
+    line-height: 1.1;
+  }
+
+  .category-lead-text {
+    font-size: 16px;
+    color: var(--text-ink-muted);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* Circular Avatar Row - matching reference screenshot design */
+  .category-circles-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+  }
+
+  .category-circle-item {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    outline: none;
+    position: relative;
+  }
+
+  .category-circle-ring {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    padding: 4px;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12);
+  }
+
+  .category-circle-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #ffffff;
+    border: 3px solid #ffffff;
+  }
+
+  .category-circle-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.4s ease;
+  }
+
+  /* Hover state */
+  .category-circle-item:hover .category-circle-ring {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 16px 32px -4px rgba(0, 168, 150, 0.25);
+  }
+
+  .category-circle-item:hover .category-circle-img {
+    transform: scale(1.08);
+  }
+
+  /* Active state */
+  /* .category-circle-item.active .category-circle-ring {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 5px rgba(0, 168, 150, 0.25), 0 20px 40px -6px rgba(0, 31, 28, 0.2);
+  } */
+
+  .category-active-checkmark {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 32px;
+    height: 32px;
+    background: var(--color-emerald-600);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 900;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    animation: popIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes popIn {
+    from {
+      transform: scale(0);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .category-circle-label {
+    margin-top: 14px;
+    font-size: 20px;
+    font-weight: 800;
+    color: #374151;
+    letter-spacing: -0.01em;
+    transition: color 0.3s ease, font-size 0.3s ease;
+  }
+
+  .category-circle-item:hover .category-circle-label {
+    color: #0b0f19;
+  }
+
+  .category-circle-item.active .category-circle-label {
+    color: #0b0f19;
+    font-weight: 900;
+  }
+
+  /* Category Showcase Container */
+  .category-showcase-panel {
+    animation: fadeInCategory 0.4s ease forwards;
+  }
+
+  .category-banner-bar {
+    display: flex;
+    align-items: center;
+    min-height: 130px;
+    margin-bottom: 28px;
+    padding: 28px 34px;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, #063b32 0%, #176350 100%);
+    color: #ffffff;
+    box-shadow: 0 14px 30px rgba(0, 63, 50, 0.16);
+  }
+
+  .category-banner-info h3 {
+    margin: 8px 0 6px;
+    color: #ffffff;
+    font-size: 1.55rem;
+  }
+
+  .category-banner-info p {
+    max-width: 720px;
+    margin: 0;
+    color: #d8f0e7;
+    line-height: 1.6;
+  }
+
+  .category-banner-badge {
+    color: #d4f0e6;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .category-products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+  }
+
+  .category-product-card {
+    display: flex;
+    flex-direction: column;
+    height: 360px;
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius-lg);
+    background: transparent;
+    box-shadow: none;
+    transition: var(--transition-smooth);
+  }
+
+  .category-product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: none;
+  }
+
+  .category-product-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .category-product-tag,
+  .category-product-score {
+    color: var(--color-emerald-700);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .category-product-score {
+    color: var(--color-gold-600);
+    text-align: right;
+  }
+
+  .category-product-title {
+    margin: 0 0 14px;
+    color: var(--text-ink-primary);
+    font-size: 1.18rem;
+    line-height: 1.3;
+  }
+
+  .category-product-image-wrap {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 0;
+    border-radius: var(--radius-sm);
+    background: #ffffff;
+    overflow: hidden;
+  }
+
+  .category-product-image {
+    width: 65%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 12px 12px rgba(0, 31, 28, 0.16));
+  }
+
+  .category-product-desc {
+    flex: 1;
+    margin: 0 0 18px;
+    color: var(--text-ink-muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .category-product-price {
+    margin-bottom: 16px;
+    color: var(--text-ink-primary);
+    font-size: 1.12rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+  }
+
+  .category-product-actives {
+    margin-bottom: 18px;
+    padding: 10px 12px;
+    border-left: 3px solid var(--color-emerald-500);
+    background: var(--bg-page);
+    color: var(--text-ink-secondary);
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .category-inquire-btn {
+    width: 100%;
+    padding: 12px 16px;
+    border: 0;
+    border-radius: var(--radius-full);
+    background: #176350;
+    color: #ffffff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+  }
+
+  .category-inquire-btn:hover {
+    background: #0d7a64;
+    transform: translateY(-1px);
+  }
+
+  @keyframes fadeInCategory {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* .category-banner-bar {
+    background: linear-gradient(135deg, #002e29 0%, #004d45 100%);
+    border-radius: 20px;
+    padding: 30px 40px;
+    margin-bottom: 30px;
+    color: #ffffff;
+    box-shadow: 0 12px 30px -6px rgba(0, 31, 28, 0.15);
+    display: flex;         
+    align-items: center;
+    justify-content: space-between;
+  } */
+
+  /* .category-banner-badge {
+    display: inline-block;
+    background: rgba(0, 168, 150, 0.25);
+    border: 1px solid rgba(0, 168, 150, 0.5);
+    color: var(--color-mint-300);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+  } */
+
+  .category-banner-info h3 {
+    font-size: 26px;
+    font-weight: 800;
+    margin: 0 0 6px 0;
+    color: #ffffff;
+  }
+
+  .category-banner-info p {
+    font-size: 15px;
+    color: var(--text-light-secondary);
+    margin: 0;
+    max-width: 750px;
+    line-height: 1.5;
+  }
+
+  /* Product Cards Grid */
+  /* .category-products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  } */
+
+  /* .category-product-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 26px;
+    border: 1px solid rgba(0, 168, 150, 0.12);
+    box-shadow: 0 8px 24px -4px rgba(0, 31, 28, 0.04);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  } */
+
+  /* .category-product-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-emerald-500);
+    box-shadow: 0 18px 40px -6px rgba(0, 168, 150, 0.18);
+  }
+
+  .category-product-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  .category-product-tag {
+    background: #fef3c7;
+    color: #b48c28;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+
+  .category-product-score {
+    color: var(--color-emerald-700);
+    font-size: 12px;
+    font-weight: 700;
+    background: var(--bg-subtle);
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+
+  .category-product-title {
+    font-size: 19px;
+    font-weight: 800;
+    color: var(--text-ink-primary);
+    margin: 0 0 10px 0;
+    line-height: 1.3;
+  }
+
+  .category-product-desc {
+    font-size: 13px;
+    color: var(--text-ink-muted);
+    line-height: 1.55;
+    margin: 0 0 18px 0;
+    flex-grow: 1;
+  } */
+
+  /* .category-product-actives {
+    font-size: 12px;
+    color: var(--text-ink-secondary);
+    background: var(--bg-page);
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 3px solid var(--color-emerald-500);
+  } */
+/* 
+  .category-inquire-btn {
+    width: 100%;
+    background: var(--color-emerald-900);
+    color: #ffffff;
+    border: none;
+    padding: 13px 18px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background 0.3s ease, transform 0.2s ease;
+  } */
+
+  /* .category-inquire-btn:hover {
+    background: var(--color-emerald-700);
+    transform: translateY(-1px);
+  } */
+
+  /* Responsive breakpoints */
+  /* @media (max-width: 1024px) {
+    .category-products-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .category-circles-row {
+      gap: 24px;
+    }
+
+    .category-circle-ring {
+      width: 110px;
+      height: 110px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .category-main-heading {
+      font-size: 32px;
+    }
+
+    .category-circles-row {
+      gap: 16px;
+    }
+
+    .category-circle-ring {
+      width: 85px;
+      height: 85px;
+      padding: 3px;
+    }
+
+    .category-circle-label {
+      font-size: 15px;
+      margin-top: 8px;
+    }
+
+    .category-products-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .category-banner-bar {
+      padding: 20px 24px;
+    }
+  } */

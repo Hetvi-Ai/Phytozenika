@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 const heroSlides = [
-  { name: 'Immune', category: 'Daily immune defense', description: 'Botanical support designed to strengthen everyday resilience and seasonal wellness.', tone: 'immune', mark: '01', image: '/products/immon.jpeg'},
+  { name: 'Immune', category: 'Daily immune defense', description: 'Botanical support designed to strengthen everyday resilience and seasonal wellness.', tone: 'immune', mark: '01', image: '/products/immon-cutout.png'},
   { name: 'Cardiovascular', category: 'Heart and circulation', description: 'Thoughtful daily support for cardiovascular vitality, healthy circulation, and active living.', tone: 'cardiovascular', mark: '02'},
   { name: 'Skin care', category: 'Radiance and renewal', description: 'Plant-powered nourishment created to support healthy, hydrated, naturally radiant skin.', tone: 'skin-care', mark: '03'},
   { name: 'Metabolic', category: 'Metabolic balance', description: 'Targeted botanical care for balanced energy, healthy metabolism, and consistent wellbeing.', tone: 'metabolic', mark: '04'},
