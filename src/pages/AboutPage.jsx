@@ -51,32 +51,32 @@ function AboutPage() {
         </section>
 
         <PhilosophySection />
-{/* 
+
         <section className="about-section about-mvv-section">
           <div className="container">
-            <div className="mvv-grid"> */}
-              {/* <div className="mvv-card ayurvedic-card-grid"> */}
-                {/* <div className="mvv-icon">🌿</div> */}
-                {/* <h3>Ayurvedic Heritage</h3> */}
-                {/* <p>Inspired by centuries of traditional wisdom and the legacy of vaidyas.</p> */}
-              {/* </div> */}
+            <div className="mvv-grid">
+              <div className="mvv-card ayurvedic-card-grid">
+                <div className="mvv-icon">🌿</div>
+                <h3>Ayurvedic Heritage</h3>
+                <p>Inspired by centuries of traditional wisdom and the legacy of vaidyas.</p>
+              </div>
 
-              {/* <div className="mvv-card scientific-innovation-card-grid"> */}
-                {/* <div className="mvv-icon">🔬</div> */}
-                {/* <h3>Scientific Innovation</h3> */}
-                {/* <p>Combining ancient knowledge with modern research and validation.</p> */}
-              {/* </div> */}
+              <div className="mvv-card scientific-innovation-card-grid">
+                <div className="mvv-icon">🔬</div>
+                <h3>Scientific Innovation</h3>
+                <p>Combining ancient knowledge with modern research and validation.</p>
+              </div>
 
-              {/* <div className="mvv-card human-wellness-card-grid"> */}
-                {/* <div className="mvv-icon">🧘🏽‍♂️</div> */}
-                {/* <h3>Human Wellness</h3> */}
-                {/* <p>Delivering safe, effective and premium-quality solutions for a healthier tomorrow.</p> */}
-              {/* </div> */}
-            {/* </div> */}
-          {/* </div> */}
-        {/* </section> */}
+              <div className="mvv-card human-wellness-card-grid">
+                <div className="mvv-icon">🧘🏽‍♂️</div>
+                <h3>Human Wellness</h3>
+                <p>Delivering safe, effective and premium-quality solutions for a healthier tomorrow.</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-        {/* <section className="about-section about-wisdom-section">
+        <section className="about-section about-wisdom-section">
           <div className="container">
             <h2 className="section-title">Our Legacy</h2>
             <div className="wisdom-grid">
@@ -101,9 +101,8 @@ function AboutPage() {
                 <p>Empowering lives for generations to come.</p>
               </div>
             </div>
-
           </div>
-        </section> */}
+        </section>
       </main>
       <Footer onContactOpen={setContactOpen} />
     </>
